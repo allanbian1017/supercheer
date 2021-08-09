@@ -1,0 +1,27 @@
+{
+  "extends": "google",
+  "rules": {
+    "code": 120,
+    "semi": "error",
+    "linebreak-style": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "should"
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "ignoreStrings": true
+      }
+    ]
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017
+  }
+}
