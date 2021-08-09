@@ -1,8 +1,10 @@
 # supercheer
 
-_supercheer_ is a utility to make it easy to do crawling webpage.
+_supercheer_ is a wrapper to wrap [superagent](https://github.com/visionmedia/superagent) and [cheerio](https://github.com/cheeriojs/cheerio) and make it easy to do crawling webpage.
 
 ## Setup
+
+---
 
 Install:
 
@@ -10,10 +12,12 @@ Install:
 npm install supercheer --save
 ```
 
-## Example
+## Usage
 
-```JavaScript
-const lambdaUtils = require('lambda-http-utils');
+---
+
+```js
+const supercheer = require('supercheer');
 
 const r = await supercheer.query(
   'https://www.google.com/',
@@ -34,5 +38,7 @@ console.log(r);
 ```
 
 ## License
+
+---
 
 MIT. See LICENSE for details.
