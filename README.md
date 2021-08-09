@@ -1,5 +1,8 @@
 # supercheer
 
+[![View on NPM](https://img.shields.io/npm/v/supercheer.svg)](https://www.npmjs.com/package/supercheer)
+[![View on NPM](https://img.shields.io/npm/dm/supercheer.svg)](https://www.npmjs.com/package/supercheer)
+
 _supercheer_ is a wrapper to wrap [superagent](https://github.com/visionmedia/superagent) and [cheerio](https://github.com/cheeriojs/cheerio) and make it easy to do crawling webpage.
 
 ## Setup
