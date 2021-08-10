@@ -32,11 +32,27 @@ references:
       command: |
         npm run test
 
+  auth_npm: &auth_npm
+    run:
+      name: Authenticate with npm registry
+      command: |
+        echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+
+  publish_npm: &publish_npm
+    run:
+      name: Publish npm package
+      command: |
+        npm publish
+
   persist_to_workspace: &persist_to_workspace
     persist_to_workspace:
       root: ~/repo
       paths:
         - .
+
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: ~/repo
 
 jobs:
   test:
@@ -48,8 +64,32 @@ jobs:
       - *run_npm_test
       - *save_npm_cache
       - *persist_to_workspace
+  deploy:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - *auth_npm
+      - *publish_npm
 
 workflows:
   run_test:
     jobs:
       - test
+  release:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only:
+                - /^v.*/
+            branches:
+              ignore: /.*/
+      - deploy:
+          requires:
+            - test
+          filters:
+            tags:
+              only:
+                - /^v.*/
+            branches:
+              ignore: /.*/
