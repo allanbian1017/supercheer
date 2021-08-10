@@ -7,8 +7,6 @@ _supercheer_ is a wrapper, wrapping [superagent](https://github.com/visionmedia/
 
 ## Setup
 
----
-
 Install:
 
 ```sh
@@ -17,7 +15,7 @@ npm install supercheer --save
 
 ## Usage
 
----
+### supercheer.query( url, selectors, transform )
 
 ```js
 const supercheer = require('supercheer');
@@ -41,7 +39,5 @@ console.log(r);
 ```
 
 ## License
-
----
 
 MIT. See LICENSE for details.
