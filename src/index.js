@@ -20,9 +20,8 @@ module.exports.query = async (url, selectors, transform) => {
       let obj = {};
       let v = $(selectors[key]).text().trim();
 
-      if (!transform[key]) {
-        obj[key] = v;
-      } else {
+      obj[key] = v;
+      if (transform[key]) {
         obj[key] = transform[key](v);
       }
 
